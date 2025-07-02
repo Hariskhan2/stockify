@@ -1,46 +1,110 @@
-# Getting Started with Create React App
+# Real-Time Stock Market Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive financial data dashboard built with React that displays live stock market data using the Alpha Vantage API.
+
+## Features
+
+- **Real-Time Stock Data**: Live stock prices with 5-minute interval updates
+- **Historical Charts**: Interactive line charts showing stock performance over time
+- **Multiple Stocks**: Support for AAPL, MSFT, GOOGL, and more
+- **Concurrent Loading**: Widgets load independently using React Suspense
+- **Auto-Refresh**: Background data updates every 5 minutes
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+## Tech Stack
+
+- **React 18** with TypeScript
+- **TanStack Query** (React Query) for data fetching and caching
+- **Redux Toolkit** for state management
+- **Recharts** for data visualization
+- **Tailwind CSS** for styling
+- **Alpha Vantage API** for stock market data
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Alpha Vantage API key (free at [alphavantage.co](https://www.alphavantage.co/support/#api-key))
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd stock-dashboard
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory:
+```env
+REACT_APP_ALPHA_VANTAGE_API_KEY=your_api_key_here
+```
+
+4. Start the development server:
+```bash
+npm start
+```
+
+The app will open at [http://localhost:3000](http://localhost:3000).
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
+- `npm run lint` - Runs ESLint
+- `npm run typecheck` - Runs TypeScript type checking
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+src/
+├── api/           # API integration and endpoints
+├── components/    # React components (widgets)
+├── features/      # Redux slices
+├── hooks/         # Custom React hooks
+├── store/         # Redux store configuration
+├── types/         # TypeScript type definitions
+└── App.tsx        # Main application component
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Key Features Implementation
 
-### `npm test`
+### Concurrent Features
+- React.lazy for code-splitting widgets
+- Suspense boundaries with loading states
+- startTransition for non-blocking updates
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Data Management
+- TanStack Query for efficient data fetching
+- 5-minute cache and automatic background refetching
+- Redux for global state (selected stock, time ranges)
 
-### `npm run build`
+### Performance Optimizations
+- Memoized components and callbacks
+- Lazy loading for better initial load time
+- Optimized re-renders with React.memo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API Rate Limits
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Alpha Vantage free tier allows:
+- 5 API requests per minute
+- 500 requests per day
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app is optimized to work within these limits through intelligent caching.
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License.
