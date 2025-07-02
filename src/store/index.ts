@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import preferencesReducer from '../features/preferences/preferencesSlice';
+import preferencesReducer from './reducers/stockSlice';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({

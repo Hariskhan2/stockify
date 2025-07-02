@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback } from 'react';
 import { RootState } from '../store';
-import { setSelectedStock, setTimeRange } from '../features/preferences/preferencesSlice';
+import { setSelectedStock, setTimeRange } from '../store/reducers/stockSlice';
 import { fetchIntradayData, fetchDailyData } from '../api/alphaVantage';
 import moment from 'moment';
 
