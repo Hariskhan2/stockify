@@ -1,8 +1,8 @@
 import React, { Suspense, startTransition, useState, useCallback } from 'react';
 import {useQueryClient } from '@tanstack/react-query';
 
-const StockOverview = React.lazy(() => import('./components/StockOverview'));
-const HistoricalChart = React.lazy(() => import('./components/HistoricalChart'));
+import  StockOverview  from'./components/StockOverview';
+import  HistoricalChart from'./components/HistoricalChart';
 
 const App: React.FC = () => {
   const queryClient = useQueryClient();
