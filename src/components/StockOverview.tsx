@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStock } from '../hooks/useStock';
 
-const StockOverview: React.FC = React.memo(() => {
+const StockOverview = () => {
   const { 
     selectedStock, 
     predefinedStocks, 
@@ -58,6 +58,6 @@ const StockOverview: React.FC = React.memo(() => {
       )}
     </div>
   );
-});
+};
 
 export default StockOverview;

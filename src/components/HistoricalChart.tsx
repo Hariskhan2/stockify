@@ -5,7 +5,7 @@ import {
 import moment from 'moment';
 import { useStock } from '../hooks/useStock';
 
-const HistoricalChart: React.FC = React.memo(() => {
+const HistoricalChart= () => {
   const { 
     selectedStock, 
     timeRange, 
@@ -76,6 +76,6 @@ const HistoricalChart: React.FC = React.memo(() => {
       )}
     </div>
   );
-});
+};
 
 export default HistoricalChart;

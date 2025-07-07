@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSelector, useDispatch } from 'react-redux';
-import { useCallback } from 'react';
 import { RootState } from '../store';
 import { setSelectedStock, setTimeRange } from '../store/reducers/stockSlice';
 import { fetchIntradayData, fetchDailyData } from '../api/alphaVantage';
@@ -32,13 +31,13 @@ export const useStock = () => {
   const selectedStock = useSelector((state: RootState) => state.preferences.selectedStock);
   const timeRange = useSelector((state: RootState) => state.preferences.timeRange);
 
-  const handleStockChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleStockChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSelectedStock(event.target.value));
-  }, [dispatch]);
+  };
 
-  const handleTimeRangeChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTimeRangeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setTimeRange(event.target.value as '1week' | '1month' | '3months'));
-  }, [dispatch]);
+  };
 
   const overviewQuery = useQuery<StockOverviewData>({
     queryKey: ['stockOverview', selectedStock],
