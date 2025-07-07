@@ -8,13 +8,13 @@ const App: React.FC = () => {
   const queryClient = useQueryClient();
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const handleRefreshAll = useCallback(() => {
+  const handleRefreshAll = () => {
     setIsRefreshing(true);
     startTransition(() => {
       queryClient.invalidateQueries();
       setIsRefreshing(false);
     });
-  }, [queryClient]);
+  };
 
 
   return (
